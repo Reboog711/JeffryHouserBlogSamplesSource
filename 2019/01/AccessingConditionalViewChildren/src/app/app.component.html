@@ -1,0 +1,28 @@
+<h1>Sample 1: ViewChild Visibility: The Problem</h1>
+
+<button (click)="child1Hidden = !child1Hidden">Toggle Sample 1 Visibility</button>
+<br/>
+Value Passed into Child: <input type="text" (keyup)="onSample1Change($event)" />
+<br/>
+
+<app-view1 #child1 *ngIf="!child1Hidden" ></app-view1>
+
+
+<h1>Sample 2: Child 2 Visibility: Using Hide instead of *ngI, no more undefined errors</h1>
+
+<button (click)="child2Hidden = !child2Hidden">Toggle Sample 2 Visibility</button>
+<br/>
+Value Passed into Child: <input type="text" (keyup)="onSample2Change($event)" />
+<br/>
+
+<app-view1 #child2 [hidden]="child2Hidden" ></app-view1>
+
+
+<h1>Sample 3: Child 2 Visibility: Using set method</h1>
+
+<button (click)="child3Hidden = !child3Hidden">Toggle Sample 3 Visibility</button>
+<br/>
+Value Passed into Child: <input type="text" (keyup)="onSample3Change($event)" />
+<br/>
+<app-view1 #child3 *ngIf="!child3Hidden" ></app-view1>
+
