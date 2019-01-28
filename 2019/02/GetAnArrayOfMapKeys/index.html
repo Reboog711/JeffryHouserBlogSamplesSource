@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    debugger;
+    let myMap = new Map();
+    myMap.set('foo', 'bar');
+    myMap.set('bar', 'Barbar');
+    myMap.set('foobar', 'BarbarFooFoo');
+    console.log(myMap);
+
+    console.log(myMap.keys());
+
+
+    console.log(Array.from( myMap.keys() ));
+
+    console.log([...myMap.keys()]);
+</script>
+
+</body>
+</html>
