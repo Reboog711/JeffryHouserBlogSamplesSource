@@ -1,0 +1,18 @@
+<h1>Mat Select that doesn't select</h1>
+<mat-form-field >
+  <mat-select placeholder="Select a Number" [(ngModel)]="selectedItem1" >
+    <mat-option *ngFor="let item of dataSource" >
+      {{item.label}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+<h1>Mat Select that does Select</h1>
+<mat-form-field >
+  <mat-select placeholder="Select a Number" [(ngModel)]="selectedItem2" >
+    <mat-option *ngFor="let item of dataSource" [value]="item" >
+      {{item.label}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
