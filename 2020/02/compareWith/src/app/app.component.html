@@ -1,0 +1,23 @@
+<b>Without compareWith function, No Default Select</b>
+<mat-form-field >
+  <mat-select [(value)]="selectedUser">
+    <ng-container *ngFor="let user of dataProvider" >
+      <mat-option [value]="user" >
+        {{user.name}}
+      </mat-option>
+    </ng-container>
+  </mat-select>
+</mat-form-field>
+
+<br/>
+
+<b>With compareWith function, Default Select</b>
+<mat-form-field >
+  <mat-select [(value)]="selectedUser" [compareWith]="selectedUserCompareFunction">
+    <ng-container *ngFor="let user of dataProvider" >
+      <mat-option [value]="user" >
+        {{user.name}}
+      </mat-option>
+    </ng-container>
+  </mat-select>
+</mat-form-field>
