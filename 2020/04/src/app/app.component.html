@@ -1,0 +1,22 @@
+<h1>Populated Instance</h1>
+{{populatedInstance.inner.data}}
+
+
+<h1>Null Inner</h1>
+<!-- Error Approach:
+{{nullInner.inner.data}}
+-->
+{{nullInner.inner?.data}}
+
+
+<h1>null Inner Data</h1>
+{{nullInnerData.inner.data}}
+
+<h1>null Instance</h1>
+{{nullInstance?.inner.data}}
+<!-- Error:
+{{nullInstance.inner.data}}
+-->
+<!-- Also works:
+{{nullInstance?.inner?.data}}
+-->
