@@ -49,6 +49,10 @@ export class AppComponent implements OnInit, DoCheck {
     }
   }
 
+  value6 = {
+    value: 'Value 6'
+  };
+
   constructor(private componentFactoryResolver: ComponentFactoryResolver, private viewContainerRef: ViewContainerRef,
               private differs: KeyValueDiffers) {
   }
@@ -99,11 +103,35 @@ export class AppComponent implements OnInit, DoCheck {
       this.value5 = value;
     });
     this.value5Ref = componentRefTwoWayBindingWithSetter.instance;
+
+    const componentRefTwoWayBindingWithProxy = this.viewContainerRef.createComponent<Comp1Component>(componentFactory);
+    componentRefTwoWayBindingWithProxy.instance.title = 'Two Way Binding (using Proxy)';
+    componentRefTwoWayBindingWithProxy.instance.value = this.value6.value;
+    componentRefTwoWayBindingWithProxy.instance.valueChanged.subscribe((value)  => {
+      debugger;
+      this.value6.value = value;
+    });
+    const handler = {
+      set: (object, prop, value) => {
+        debugger;
+        object[prop] = value;
+        if ((prop  === 'value') && (componentRefTwoWayBindingWithProxy.instance.value !== object[prop])) {
+          componentRefTwoWayBindingWithProxy.instance.value = object[prop];
+        }
+        return true;
+      }
+    };
+    this.value6 = new Proxy(this.value6, handler);
   }
 
   dump(): void {
     debugger;
     console.log(this.value1);
+    console.log(this.value2);
+    console.log(this.value3);
+    console.log(this.value4);
+    console.log(this.value5);
+    console.log(this.value6);
   }
 
 }
