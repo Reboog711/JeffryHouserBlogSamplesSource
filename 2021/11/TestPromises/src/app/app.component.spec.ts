@@ -69,10 +69,10 @@ describe('AppComponent', () => {
       resolveFunction(true);
     });
 
-    it('should call failure method listening to spy', (done) => {
+    it('should call failure method listening to promise', (done) => {
       component.error = true;
       component.callServiceWithPromise();
-      // worth nothing that if the then() isn't here then the catch will run here before it runs in the app.component
+      // worth noting that if the then() isn't here then the catch will run here before it runs in the app.component
       promise.then().catch(() => {
         expect(component.error).toBeFalsy();
         done();
