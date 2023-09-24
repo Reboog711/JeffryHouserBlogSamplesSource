@@ -1,0 +1,42 @@
+<mat-tab-group>
+  <mat-tab label="Basic">
+    <h1>Built for One System</h1>
+    <app-metadata-display-basic  *ngFor="let asset of basicObjects" [data]="asset">
+    </app-metadata-display-basic>
+  </mat-tab>
+  <mat-tab label="With Multiple Object Schemas">
+    <h1>Built for Multiple Systems, using conditionals in template</h1>
+    <app-metadata-display-with-multiple-object-schemas
+      *ngFor="let asset of multipleObjectSchemas"
+      [data]="asset">
+
+    </app-metadata-display-with-multiple-object-schemas>
+
+  </mat-tab>
+  <mat-tab label="With Classes">
+    <h1>Built for Multiple Systems, using conditionals in component</h1>
+    <app-metadata-display-with-classes
+      *ngFor="let asset of multipleClasses"
+      [data]="asset">
+
+    </app-metadata-display-with-classes>
+
+  </mat-tab>
+  <mat-tab label="With Interface">
+    <h1>Built for Multiple Systems, using interface input; getters in class; no conditionals</h1>
+    <app-metadata-display-with-interfaces
+      *ngFor="let asset of multipleClasses"
+      [data]="asset">
+
+    </app-metadata-display-with-interfaces>
+  </mat-tab>
+  <mat-tab label="With Types">
+    <h1>Built for Multiple Systems, using types instead of classes or interfaces</h1>
+    <app-metadata-display-with-interfaces
+      *ngFor="let asset of withType"
+      [data]="asset">
+
+    </app-metadata-display-with-interfaces>
+
+  </mat-tab>
+</mat-tab-group>
